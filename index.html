@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Money Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1><i class="fas fa-wallet"></i> Student Money Manager</h1>
+      <div class="balance-box">
+        <h3>Current Balance: <span id="balance">₹0</span></h3>
+      </div>
+    </header>
+
+    <!-- Add Transaction Form -->
+    <div class="add-transaction">
+      <h2><i class="fas fa-plus-circle"></i> Add Transaction</h2>
+      <form id="transaction-form">
+        <select id="type" required>
+          <option value="">Select Type</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <input type="text" id="category" placeholder="Category (e.g., Salary, Food)" required>
+        <input type="number" id="amount" placeholder="Amount (₹)" required>
+        <select id="payment-method">
+          <option value="cash">Cash</option>
+          <option value="gpay">GPay</option>
+          <option value="phonepe">PhonePe</option>
+        </select>
+        <button type="submit"><i class="fas fa-save"></i> Save</button>
+      </form>
+    </div>
+
+    <!-- Transaction History -->
+    <div class="transactions">
+      <h2><i class="fas fa-history"></i> Transaction History</h2>
+      <table id="transactions-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Payment</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="transactions-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Charts Section (Phase 4) -->
+     <!-- Analytics Section -->
+<section class="analytics">
+  <h2><i class="fas fa-chart-pie"></i> Analytics</h2>
+  
+  <!-- Balance Chart -->
+   <div style="display: flex;">
+ <div class="chart-container">
+    <h3>Wallet Status</h3>
+    <canvas id="balance-chart"></canvas>
+  </div>
+  
+  <!-- Expenses Chart -->
+  <div class="chart-container">
+    <h3>Spending by Category</h3>
+    <canvas id="expense-chart"></canvas>
+  </div>
+   </div>
+ 
+</section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  <!-- Load libraries FIRST -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Your custom scripts -->
+<script src="script.js"></script>
+<script src="chart.js"></script>  <!-- Must come after script.js if they share functions -->
+</body>
+</html>
