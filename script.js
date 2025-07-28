@@ -69,10 +69,78 @@ function addTransaction() {
 }
 
 // After deleting a transaction:
-function deleteTransaction(id) {
-  // ... your existing code ...
-  refreshCharts(); // Add this line
-}
+// function deleteTransaction(id) {
+//   // ... your existing code ...
+//   refreshCharts(); // Add this line
+// }
+// Firebase Config (replace with your actual config)
+const firebaseConfig = {
+    apiKey: "AIzaSyAQPFEBTyzjLgASiCDJ1xeRtNE_9GER8w",
+    authDomain: "student-money-manager.firebaseapp.com",
+    projectId: "student-money-manager",
+    storageBucket: "student-money-manager.appspot.com",
+    messagingSenderId: "1081002905414",
+    appId: "1:1081002905414:web:your-app-id-here"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// DOM Elements
+const loginBox = document.getElementById('login-box');
+const signupBox = document.getElementById('signup-box');
+const showSignup = document.getElementById('show-signup');
+const showLogin = document.getElementById('show-login');
+
+// Toggle between Login/Signup
+showSignup.addEventListener('click', () => {
+    loginBox.style.display = 'none';
+    signupBox.style.display = 'block';
+});
+
+showLogin.addEventListener('click', () => {
+    signupBox.style.display = 'none';
+    loginBox.style.display = 'block';
+});
+
+// Login Function
+document.getElementById('login-btn').addEventListener('click', () => {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Redirect to main app page after login
+            window.location.href = 'app.html'; // Create this file later
+        })
+        .catch((error) => {
+            alert(`Login failed: ${error.message}`);
+        });
+});
+
+// Signup Function
+document.getElementById('signup-btn').addEventListener('click', () => {
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            alert('Account created successfully! Please log in.');
+            signupBox.style.display = 'none';
+            loginBox.style.display = 'block';
+        })
+        .catch((error) => {
+            alert(`Signup failed: ${error.message}`);
+        });
+});
+
+// Check if user is already logged in (auto-redirect)
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        window.location.href = 'app.html';
+    }
+});
 
 
 
