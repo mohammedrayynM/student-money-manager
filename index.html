@@ -55,69 +55,47 @@
       </table>
     </div>
 
-    <!-- Charts Section (Phase 4) -->
-     <!-- Analytics Section -->
-<section class="analytics">
-  <h2><i class="fas fa-chart-pie"></i> Analytics</h2>
-  
-  <!-- Balance Chart -->
-   <div style="display: flex;">
- <div class="chart-container">
-    <h3>Wallet Status</h3>
-    <canvas id="balance-chart"></canvas>
-  </div>
-  
-  <!-- Expenses Chart -->
-  <div class="chart-container">
-    <h3>Spending by Category</h3>
-    <canvas id="expense-chart"></canvas>
-  </div>
-   </div>
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Money Manager - Login</title>
-    <link rel="stylesheet" href="style.css">
-   
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-</head>
-<body>
-    <div class="auth-container">
-        <div class="auth-box" id="login-box">
-            <!-- <h2>Login</h2> -->
-            <!-- <input type="email" id="login-email" placeholder="Email"> -->
-            <!-- <input type="password" id="login-password" placeholder="Password"> -->
-            <button id="login-btn">Login</button>
-            <p class="auth-switch">Don't have an account? <span id="show-signup">Sign Up</span></p>
+    <!-- Analytics Section -->
+    <section class="analytics">
+      <h2><i class="fas fa-chart-pie"></i> Analytics</h2>
+      <div style="display: flex;">
+        <div class="chart-container">
+          <h3>Wallet Status</h3>
+          <canvas id="balance-chart"></canvas>
         </div>
+        <div class="chart-container">
+          <h3>Spending by Category</h3>
+          <canvas id="expense-chart"></canvas>
+        </div>
+      </div>
+    </section>
 
-        <div class="auth-box" id="signup-box" style="display: none;">
-            <h2>Sign Up</h2>
-            <input type="email" id="signup-email" placeholder="Email">
-            <input type="password" id="signup-password" placeholder="Password (min. 6 chars)">
-            <button id="signup-btn">Create Account</button>
-            <p class="auth-switch">Already have an account? <span id="show-login">Login</span></p>
-        </div>
+    <!-- Hidden Auth Container to satisfy script.js selectors -->
+    <div class="auth-container" style="display: none;">
+      <div class="auth-box" id="login-box">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email">
+        <input type="password" id="login-password" placeholder="Password">
+        <button id="login-btn">Login</button>
+        <p class="auth-switch">Don't have an account? <span id="show-signup">Sign Up</span></p>
+      </div>
+      <div class="auth-box" id="signup-box" style="display: none;">
+        <h2>Sign Up</h2>
+        <input type="email" id="signup-email" placeholder="Email">
+        <input type="password" id="signup-password" placeholder="Password (min. 6 chars)">
+        <button id="signup-btn">Create Account</button>
+        <p class="auth-switch">Already have an account? <span id="show-login">Login</span></p>
+      </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
- 
-</section>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
   <!-- Load libraries FIRST -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
 
-<!-- Your custom scripts -->
-<script src="script.js"></script>
-<script src="chart.js"></script>  <!-- Must come after script.js if they share functions -->
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+  <!-- Your custom scripts -->
+  <script src="script.js"></script>
+  <script src="chart.js"></script>
 </body>
 </html>
